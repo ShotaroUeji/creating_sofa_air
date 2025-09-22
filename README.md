@@ -4,7 +4,7 @@
 
 本リポジトリは、**Aachen Impulse Response (AIR) Database**　[https://www.iks.rwth-aachen.de/en/research/tools-downloads/databases/aachen-impulse-response-database/] の配布データを一括処理し、
 
-1. MATLAB で公式 `load_air.m` を用いて **中間 .mat (SRIR: M=1, R=2)** を生成（`out_intermediate/`）
+1. MATLAB で公式 `load_air.m` を用いて **中間 .mat (マイクロフォンアレイごと)** を生成（`out_intermediate/`）
 2. Python + **sofar** で **SOFA (SingleRoomSRIR)** へ変換（`out_sofa/`）
 
 するための実装を提供します。

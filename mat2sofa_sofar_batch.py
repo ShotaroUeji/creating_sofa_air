@@ -122,8 +122,8 @@ def convert_one(mat_path, out_dir, overwrite=False, verbose=True):
     room_name = _ROOM_NAMES.get(room, f"room{room}")
     title = f"AIR room={room} ({room_name}), {fmt_g(dist)} m, az={fmt_g(az_sofa)}°, {rirtype_label(rir_type)}{' +head' if head==1 else ''} (SRIR)"
     sofa.GLOBAL_Title = title
-    sofa.GLOBAL_AuthorContact = "ueji shotaro <uesho131@keio.jp>"
-    sofa.GLOBAL_Organization  = "Takamichi-lab"
+    sofa.GLOBAL_AuthorContact = "hello"
+    sofa.GLOBAL_Organization  = "hello"
     sofa.GLOBAL_License       = "Research use; RIRs from AIR DB"
     sofa.GLOBAL_Comment       = "Converted from AIR v1.4 (Aachen IR DB)"
     sofa.GLOBAL_DatabaseName  = "Aachen Impulse Response (AIR)"

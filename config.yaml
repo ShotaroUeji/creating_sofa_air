@@ -1,0 +1,12 @@
+{out_intermediate: out_intermediate,
+fs: 48000,
+rir_type: 1,
+rooms: [1]
+head: 1
+rir_no_list: [3]     # Aulaは距離=3mのときだけ角度スイープ
+chan_map: [1, 0]     # L=1, R=0
+verbose: true
+# az_list_override: [0, 45, 90, 135, 180]  # ← 独自に角度を指定したいときだけ有効化}
+
+
+json

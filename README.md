@@ -13,7 +13,7 @@
 
 ## 背景
 
-* AIR の配布は、**1 つの .mat = 1 チャンネル（= 1 マイク）** の単一 IR とメタ情報 (`air_info`) を含みます。例えば、L/R の両耳収録は **左右で別ファイル** です。公式ローダー `load_air.m` は、与えたパラメータ（部屋、距離インデックス、方位、チャンネルなど）に応じて該当ファイルを返します。
+* AIR の元データでは、1 つの .mat に **1 チャンネル（= 1 マイク）** の単一 IR とメタ情報 (`air_info`) を含みます。例えば、L/R の両耳収録は **左右で別ファイル** です。公式ローダー `load_air.m` は、与えたパラメータ（部屋、距離インデックス、方位、チャンネルなど）に応じて該当ファイルを返します。
 * 
 * SOFA への書き出しは **SingleRoomSRIR 1.0** [https://www.sofaconventions.org/mediawiki/index.php/SingleRoomSRIR] を採用し、`ReceiverPosition` は ±0.09 m を仮定（必要に応じて調整可）。
 
@@ -102,23 +102,6 @@ MATLAB コマンドウィンドウで：
 * それ以外: `90`（= AIR で正面）
 * `room=11` は `mic_type=3` を明示（実装内で設定）
 
-### 設定ファイル例（`config.yaml`）
-
-```yaml
-out_intermediate: ./out_intermediate
-fs: 48000
-rir_type: 1           # 1=binaural（固定運用）
-rooms: [1, 2, 4, 5, 11]
-head_list: [1]        # 1=with dummy head のみ
-rir_no_list: []       # 空=部屋に応じて自動（下表の距離インデックス全取り）
-chan_map: [1, 0]      # L(1), R(0)
-require_full_stereo: true
-verbose: true
-az_list_override: []  # ここに [0,45,90,...] を入れると強制上書き
-```
-
-> YAML が読めない環境では同内容の `config.json` を置けば自動フォールバックします。
-
 ---
 
 ## 2) SOFA への変換（Python + sofar）
@@ -143,10 +126,10 @@ python mat2sofa_sofar_single.py --in_path out_intermediate/XXXX.mat --out_dir ou
 * Conventions: **SingleRoomSRIR 1.0**
 * `Data.IR`: (M=1, R=2, N) ← 中間 .mat をそのまま格納
 * `Data.SamplingRate`: Hz
-* `ListenerPosition`: (M,3) = `[0,0,0]`
-* `ReceiverPosition`: (R,3,M) = `[-0.09,0,0]` / `[+0.09,0,0]`（仮定）
-* `SourcePosition`: (M,3) = `[az_SOFA, 0, distance]`
-* **AIR→SOFA 方位変換**: `az_SOFA = wrap_angle_pm180(90 - az_AIR)`
+* `ListenerPosition`: (M,3) = `[0,0,0]`[x, y, z]
+* `ReceiverPosition`: (R,3,M) = `[-0.09,0,0]` / `[+0.09,0,0]`（仮定）[x, y, z]
+* `SourcePosition`: (M,3) = `[az, 0, distance]` [degree, degree, metre] 
+
 * タイトルや日付などの GLOBAL メタも自動付与
 
 ### 距離テーブル（`room` と `rir_no` の対応）

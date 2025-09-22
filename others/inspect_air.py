@@ -5,7 +5,7 @@ import sofar as sf
 from scipy.io.wavfile import write as write_wav
 import matplotlib.pyplot as plt
 
-PATH = r"out_sofa\AIR_room5_stairway_3m_az0_binaural_head.sofa"  # ←確認したいSOFA
+PATH = "../out_sofa/AIR_room5_stairway_3m_az0_binaural_head.sofa"  # ←確認したいSOFA
 
 def main():
     sofa = sf.read_sofa(PATH)  # 読み込み

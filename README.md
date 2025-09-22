@@ -2,7 +2,7 @@
 
 最終更新: 2025-09-22
 
-本リポジトリは、**Aachen Impulse Response (AIR) Database** の配布データを一括処理し、
+本リポジトリは、**Aachen Impulse Response (AIR) Database**　[https://www.iks.rwth-aachen.de/en/research/tools-downloads/databases/aachen-impulse-response-database/] の配布データを一括処理し、
 
 1. MATLAB で公式 `load_air.m` を用いて **中間 .mat (SRIR: M=1, R=2)** を生成（`out_intermediate/`）
 2. Python + **sofar** で **SOFA (SingleRoomSRIR)** へ変換（`out_sofa/`）
@@ -15,7 +15,7 @@
 
 * AIR の配布は、**1 つの .mat = 1 チャンネル（= 1 マイク）** の単一 IR とメタ情報 (`air_info`) を含みます。例えば、L/R の両耳収録は **左右で別ファイル** です。公式ローダー `load_air.m` は、与えたパラメータ（部屋、距離インデックス、方位、チャンネルなど）に応じて該当ファイルを返します。
 * 
-* SOFA への書き出しは **SingleRoomSRIR 1.0** [https://www.sofaconventions.org/mediawiki/index.php/SingleRoomSRIR ] を採用し、`ReceiverPosition` は ±0.09 m を仮定（必要に応じて調整可）。
+* SOFA への書き出しは **SingleRoomSRIR 1.0** [https://www.sofaconventions.org/mediawiki/index.php/SingleRoomSRIR] を採用し、`ReceiverPosition` は ±0.09 m を仮定（必要に応じて調整可）。
 
 ---
 
@@ -26,8 +26,8 @@ AIR_1_4/
 ├─ data/                 # AIR 純正の .mat 群（公式配布をそのまま配置）
 ├─ out_intermediate/     # 中間 .mat (M=1,R=2,N) の出力先
 ├─ out_sofa/             # 変換後の .sofa 出力先
-├─ load_air.m            # 公式ローダー（配布そのまま・未改変）
-├─ load_air_examples.m   # 公式サンプル（任意）
+├─ load_air.m            # 公式ローダー(参照パス名以外はそのまま)
+├─ load_air_examples.m   # 公式サンプル(load_air.mの使い方)
 ├─ build_submats.m       # ★ 一括生成（ステレオ前提）
 ├─ build_submats_single.m# ★ 単一条件での生成（検証向け）
 ├─ mat2sofa_sofar_batch.py   # ★ 中間 .mat → SOFA を一括変換

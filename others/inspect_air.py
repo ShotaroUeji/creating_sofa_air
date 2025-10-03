@@ -8,7 +8,9 @@ import matplotlib.pyplot as plt
 PATH = "./out_sofa/AIR_room5_stairway_3m_az0_binaural_head.sofa"  # ←確認したいSOFA
 
 def main():
+    
     sofa = sf.read_sofa(PATH)  # 読み込み
+    sofa.inspect()             # メタ情報表示
     ir = sofa.Data_IR          # shape: (M,R,N) 期待: (1,2,N)
     fs = float(np.squeeze(sofa.Data_SamplingRate))
     M, R, N = ir.shape

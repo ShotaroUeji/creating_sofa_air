@@ -187,7 +187,7 @@ python mat2sofa_sofar_single.py --in_path out_intermediate/XXXX.mat --out_dir ou
 * **SOFA 書き込み時の検証エラー**
 
   * `sofar` が要求する Conventions/Dimensions に合うよう、`IR` の次元（M=1,R=2）やサンプリング周波数が妥当かを確認。
-
+  *  python others/inspect_air.pyでsofaファイルの中身を確認できます。
 ---
 
 ## 引用・ライセンス

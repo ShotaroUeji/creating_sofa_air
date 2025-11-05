@@ -127,6 +127,7 @@ def convert_one(mat_path, out_dir, overwrite=False, verbose=True):
     sofa.GLOBAL_License       = "Research use; RIRs from AIR DB"
     sofa.GLOBAL_Comment       = "Converted from AIR v1.4 (Aachen IR DB)"
     sofa.GLOBAL_DatabaseName  = "Aachen Impulse Response (AIR)"
+    sofa.GLOBAL_RoomShortName = room_name
     sofa.GLOBAL_DateCreated   = now
     sofa.GLOBAL_DateModified  = now
 
@@ -167,3 +168,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

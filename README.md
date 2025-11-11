@@ -214,9 +214,10 @@ AIR→SOFA 変換後に生成される `out_sofa/*.sofa` を**高速に検索**�
 ### インストール
 
 Python 側の依存に `sofar` を利用しています（`pip install sofar`）。
-本リポジトリのセットアップ手順は既存の「セットアップ > Python 側」を参照してください（`requirements.txt` に含まれます）。
+本リポジトリのセットアップ手順は既存の「セットアップ > Python 側」を参照してください（`requirements.txt` に含まれます）。 
 
 ### 使い方（クイックスタート）
+```python -m searching_examples.search_example```
 
 ```python
 from pathlib import Path
